@@ -1,0 +1,6 @@
+{{- include "accounts.configmap" (list . "accounts-server.configmap") -}}
+{{- define "accounts-server.configmap" -}}
+data:
+  NODE_ENV: "production"
+  PORT: "80"
+{{- end -}}

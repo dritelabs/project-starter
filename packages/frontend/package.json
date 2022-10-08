@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "@dritelabs/project-starter-frontend",
+  "version": "0.0.0",
+  "description": "My awesome typescript library",
+  "license": "MIT",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@dritelabs/project-starter-protobuf": "*",
+    "@dritelabs/project-starter-utils": "*"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.11",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@nuxtjs/color-mode": "^3.1.6",
+    "@nuxtjs/tailwindcss": "^5.3.3",
+    "@vueuse/core": "^9.3.0",
+    "@vueuse/nuxt": "^9.3.0",
+    "chart.js": "^3.9.1",
+    "daisyui": "^2.31.0",
+    "tailwind-scrollbar": "^2.0.1",
+    "vue-chartjs": "^4.1.1"
+  }
+}

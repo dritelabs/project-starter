@@ -1,0 +1,30 @@
+{
+  "name": "@dritelabs/project-starter-server",
+  "version": "0.0.0",
+  "description": "My awesome typescript library",
+  "private": true,
+  "scripts": {
+    "build": "tsup src/index.ts --target node16 --format esm",
+    "dev": "pnpm build --sourcemap --watch --onSuccess 'node dist/index.mjs'",
+    "fix": "gts fix",
+    "lint": "gts lint",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build",
+    "prepare": "pnpm build",
+    "pretest": "pnpm build",
+    "posttest": "pnpm lint"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@dritelabs/project-starter-db": "*",
+    "@dritelabs/project-starter-protobuf": "*",
+    "@dritelabs/project-starter-utils": "*",
+    "@pager/jackrabbit": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/pager__jackrabbit": "^4.8.2",
+    "eslint": "^8.24.0",
+    "gts": "^3.1.1",
+    "tsup": "6.2.3"
+  }
+}

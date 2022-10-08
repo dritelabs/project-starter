@@ -1,0 +1,23 @@
+# app base image
+
+FROM node:16
+
+ARG APP_DIR
+ARG APP_NAME
+
+ENV _APP_DIR=$APP_DIR
+
+WORKDIR /usr/src/accounts
+
+COPY . .
+
+RUN node ./common/scripts/install-run-rush.js update
+RUN node ./common/scripts/install-run-rush.js gen --to-except $APP_NAME
+RUN node ./common/scripts/install-run-rush.js build --to-except $APP_NAME
+
+# COPY --from=builder /app/packages/backend/node_modules/@prisma/client/ ./node_modules/@prisma/client/
+# COPY --from=builder /app/packages/backend/node_modules/.prisma/client/ ./node_modules/.prisma/client/
+
+EXPOSE 3000 4000 24678 24679
+
+CMD cd "/usr/src/accounts/apps/$_APP_DIR" && node /usr/src/accounts/common/scripts/install-run-rushx.js dev

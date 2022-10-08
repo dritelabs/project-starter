@@ -1,0 +1,8 @@
+{{- include "accounts.configmap" (list . "accounts-frontend.configmap") -}}
+{{- define "accounts-frontend.configmap" -}}
+data:
+  NODE_ENV: "production"
+  PORT: "80"
+  SERVER_HOST: "accounts-server:80"
+  MEMCACHED_HOST: localhost:11211
+{{- end -}}

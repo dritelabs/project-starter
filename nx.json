@@ -1,0 +1,51 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "generate",
+          "lint",
+          "lint:fix",
+          "test"
+        ]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^generate",
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/.nuxt",
+        "{projectRoot}/.output"
+      ]
+    },
+    "dev": {
+      "dependsOn": [
+        "^generate",
+        "^build:dev"
+      ],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/.nuxt",
+        "{projectRoot}/.output"
+      ]
+    },
+    "generate": {
+      "dependsOn": [
+        "^generate",
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/.nuxt",
+        "{projectRoot}/.output"
+      ]
+    }
+  }
+}
