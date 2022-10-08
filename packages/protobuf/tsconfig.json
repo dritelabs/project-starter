@@ -3,8 +3,9 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "outDir": "dist",
+    "outDir": "test",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
 }

@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "lerna run build --stream",
+    "build:dev": "lerna run build:dev --stream",
     "clean": "lerna exec -- rm -rf ./node_modules ./dist",
     "dev": "lerna run dev --stream",
     "generate": "lerna run generate --stream",

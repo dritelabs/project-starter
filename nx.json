@@ -5,6 +5,7 @@
       "options": {
         "cacheableOperations": [
           "build",
+          "build:dev",
           "generate",
           "lint",
           "lint:fix",
@@ -18,6 +19,17 @@
       "dependsOn": [
         "^generate",
         "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/.nuxt",
+        "{projectRoot}/.output"
+      ]
+    },
+    "build:dev": {
+      "dependsOn": [
+        "^generate",
+        "^build:dev"
       ],
       "outputs": [
         "{projectRoot}/dist",
