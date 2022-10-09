@@ -15,7 +15,7 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "husky": "^8.0.1",
-    "lerna": "^5.5.2",
-    "nx": "^14.7.18"
+    "lerna": "^5.6.2",
+    "nx": "^14.8.3"
   }
 }

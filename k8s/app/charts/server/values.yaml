@@ -5,14 +5,14 @@
 replicaCount: 1
 
 image:
-  repository: glopezep/driten-accounts-server
+  repository: glopezep/project-starter-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: "accounts-server"
+fullnameOverride: "project-starter-server"
 
 
 serviceAccount:

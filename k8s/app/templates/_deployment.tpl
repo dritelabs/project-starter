@@ -1,10 +1,10 @@
-{{- define "accounts.deployment" -}}
+{{- define "drite.deployment" -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "accounts.fullname" . }}
+  name: {{ include "drite.fullname" . }}
   labels:
-    {{- include "accounts.labels" . | nindent 4 }}
+    {{- include "drite.labels" . | nindent 4 }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 spec:
@@ -13,7 +13,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "accounts.selectorLabels" . | nindent 6 }}
+      {{- include "drite.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -21,13 +21,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "accounts.selectorLabels" . | nindent 8 }}
+        {{- include "drite.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "accounts.serviceAccountName" . }}
+      serviceAccountName: {{ include "drite.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -38,9 +38,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
-                name: {{ include "accounts.fullname" . }}
+                name: {{ include "drite.fullname" . }}
             - secretRef:
-                name: {{ include "accounts.fullname" . }}
+                name: {{ include "drite.fullname" . }}
           ports:
             - name: http
               containerPort: 80

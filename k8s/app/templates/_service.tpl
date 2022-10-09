@@ -1,10 +1,10 @@
-{{- define "accounts.service" -}}
+{{- define "drite.service" -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "accounts.fullname" . }}
+  name: {{ include "drite.fullname" . }}
   labels:
-    {{- include "accounts.labels" . | nindent 4 }}
+    {{- include "drite.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,5 +13,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "accounts.selectorLabels" . | nindent 4 }}
+    {{- include "drite.selectorLabels" . | nindent 4 }}
 {{- end}}

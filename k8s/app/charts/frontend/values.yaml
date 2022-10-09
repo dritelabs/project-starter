@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: glopezep/driten-accounts-frontend
+  repository: glopezep/project-starter-frontend
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -13,7 +13,7 @@ image:
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: "accounts-frontend"
+fullnameOverride: "project-starter-frontend"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -49,27 +49,27 @@ ingress:
     # kubernetes.io/tls-acme: "true"
     # cert-manager.io/issuer: "letsencrypt-prod"
   hosts:
-    - host: cornporntime.com
+    - host: project-starter.com
       paths:
       - path: /
         backend:
           service:
-            name: accounts-frontend
+            name: project-starter-frontend
             port:
               number: 80
-    - host: www.cornporntime.com
+    - host: www.project-starter.com
       paths:
       - path: /
         backend:
           service:
-            name: accounts-frontend
+            name: project-starter-frontend
             port:
               number: 80
   tls:
    - secretName: accounts-prod-tls
      hosts:
-       - cornporntime.com
-       - www.cornporntime.com
+       - project-starter.com
+       - www.project-starter.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

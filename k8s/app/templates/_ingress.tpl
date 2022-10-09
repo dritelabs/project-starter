@@ -1,6 +1,6 @@
-{{- define "accounts.ingress" -}}
+{{- define "drite.ingress" -}}
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "accounts.fullname" . -}}
+{{- $fullName := include "drite.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 {{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: networking.k8s.io/v1
@@ -11,7 +11,7 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "accounts.labels" . | nindent 4 }}
+    {{- include "drite.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

@@ -1,11 +1,11 @@
-{{- define "accounts.secret.tpl" -}}
+{{- define "drite.secret.tpl" -}}
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "accounts.fullname" . }}
+  name: {{ include "drite.fullname" . }}
 type: Opaque
 data: {}
 {{- end -}}
-{{- define "accounts.secret" -}}
-{{- include "accounts.util.merge" (append . "accounts.secret.tpl") -}}
+{{- define "drite.secret" -}}
+{{- include "drite.util.merge" (append . "drite.secret.tpl") -}}
 {{- end -}}

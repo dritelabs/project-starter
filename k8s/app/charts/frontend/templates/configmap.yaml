@@ -1,8 +1,8 @@
-{{- include "accounts.configmap" (list . "accounts-frontend.configmap") -}}
-{{- define "accounts-frontend.configmap" -}}
+{{- include "drite.configmap" (list . "project-starter-frontend.configmap") -}}
+{{- define "project-starter-frontend.configmap" -}}
 data:
   NODE_ENV: "production"
   PORT: "80"
-  SERVER_HOST: "accounts-server:80"
+  SERVER_HOST: "project-starter-server:80"
   MEMCACHED_HOST: localhost:11211
 {{- end -}}

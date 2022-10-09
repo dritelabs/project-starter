@@ -1,1 +1,1 @@
-{ { include "accounts.deployment" . } }
+{{include "drite.deployment" .}}

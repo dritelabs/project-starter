@@ -22,7 +22,6 @@
     "lint": "gts lint",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build",
-    "prepare": "pnpm build",
     "pretest": "pnpm build",
     "posttest": "pnpm lint"
   },

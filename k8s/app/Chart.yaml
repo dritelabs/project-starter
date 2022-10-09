@@ -1,6 +1,6 @@
 apiVersion: v2
-name: accounts
-description: accounts Helm chart
+name: drite
+description: Drite Helm chart
 
 # A chart can be either an 'application' or a 'library' chart.
 #

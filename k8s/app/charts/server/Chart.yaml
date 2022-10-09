@@ -1,5 +1,5 @@
 apiVersion: v2
-name: accounts-server
+name: server
 description: Server sub chart
 
 # A chart can be either an 'application' or a 'library' chart.

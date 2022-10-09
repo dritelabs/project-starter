@@ -1,10 +1,10 @@
-{{- define "accounts.configmap.tpl" -}}
+{{- define "drite.configmap.tpl" -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "accounts.fullname" . }}
+  name: {{ include "drite.fullname" . }}
 data: {}
 {{- end -}}
-{{- define "accounts.configmap" -}}
-{{- include "accounts.util.merge" (append . "accounts.configmap.tpl") -}}
+{{- define "drite.configmap" -}}
+{{- include "drite.util.merge" (append . "drite.configmap.tpl") -}}
 {{- end -}}

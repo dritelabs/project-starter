@@ -1,1 +1,1 @@
-{ { include "accounts.service" . } }
+{{include "drite.service" .}}

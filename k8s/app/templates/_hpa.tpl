@@ -1,16 +1,16 @@
-{{- define "accounts.hpa" -}}
+{{- define "drite.hpa" -}}
 {{- if .Values.autoscaling.enabled }}
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "accounts.fullname" . }}
+  name: {{ include "drite.fullname" . }}
   labels:
-    {{- include "accounts.labels" . | nindent 4 }}
+    {{- include "drite.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "accounts.fullname" . }}
+    name: {{ include "drite.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

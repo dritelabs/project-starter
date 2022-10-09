@@ -1,1 +1,1 @@
-{ { include "accounts.ingress" . } }
+{{include "drite.ingress" .}}
