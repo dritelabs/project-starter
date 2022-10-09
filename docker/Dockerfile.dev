@@ -1,23 +1,18 @@
-# app base image
+FROM node:16 AS deps
 
-FROM node:16
-
-ARG APP_DIR
 ARG APP_NAME
 
-ENV _APP_DIR=$APP_DIR
+ENV _APP_NAME=$APP_NAME
+ENV NODE_ENV=development
 
-WORKDIR /usr/src/accounts
+RUN npm i -g pnpm
+
+WORKDIR /app
 
 COPY . .
 
-RUN node ./common/scripts/install-run-rush.js update
-RUN node ./common/scripts/install-run-rush.js gen --to-except $APP_NAME
-RUN node ./common/scripts/install-run-rush.js build --to-except $APP_NAME
+RUN pnpm i
 
-# COPY --from=builder /app/packages/backend/node_modules/@prisma/client/ ./node_modules/@prisma/client/
-# COPY --from=builder /app/packages/backend/node_modules/.prisma/client/ ./node_modules/.prisma/client/
+EXPOSE 5000-5010
 
-EXPOSE 3000 4000 24678 24679
-
-CMD cd "/usr/src/accounts/apps/$_APP_DIR" && node /usr/src/accounts/common/scripts/install-run-rushx.js dev
+CMD pnpm dev --scope=$_APP_NAME

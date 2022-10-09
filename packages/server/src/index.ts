@@ -12,9 +12,10 @@ const server = createServer();
 server.addService(proto.service.ServiceName.service, implementations);
 
 server.bindAsync(config.host, grpc.ServerCredentials.createInsecure(), () => {
-  logger.info('Server listening on port 5001');
+  logger.info(`Server listening on port ${config.host}`);
 });
 
-exitHandler(() => {
+exitHandler((err: Error) => {
+  console.log(err);
   process.exit(0);
 });

@@ -17,7 +17,7 @@
   "targetDefaults": {
     "build": {
       "dependsOn": [
-        "^generate",
+        "generate",
         "^build"
       ],
       "outputs": [
@@ -28,7 +28,7 @@
     },
     "build:dev": {
       "dependsOn": [
-        "^generate",
+        "generate",
         "^build:dev"
       ],
       "outputs": [
@@ -39,7 +39,6 @@
     },
     "dev": {
       "dependsOn": [
-        "^generate",
         "^build:dev"
       ],
       "outputs": [

@@ -11,5 +11,5 @@ message Response {
 }
 
 service ServiceName {
-  rpc ServiceMethod (Request) returns (Response);
+  rpc SayHello (Request) returns (Response);
 }

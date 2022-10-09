@@ -4,10 +4,10 @@ const signalTraps = ['SIGTERM', 'SIGINT', 'SIGUSR2'];
 
 export function exitHandler(cb: Function) {
   errorTypes.forEach(type => {
-    process.on(type, async () => {
+    process.on(type, async err => {
       try {
         logger.info(`process.on ${type}`);
-        cb();
+        cb(err);
       } catch (e) {
         throw e as Error;
         // process.exit(1);
