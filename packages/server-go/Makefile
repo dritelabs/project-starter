@@ -39,20 +39,14 @@ endif
 .PHONY: pj
 project := pj 
 
-all: $(project) ## Generate Pbs and build
-
-pj: $@ ## Generate Pbs and build for greet
-
-$(project):
+project:
 	protoc -I../${PROTO_DIR} --go_opt=module=${PACKAGE} --go_out=. --go-grpc_opt=module=${PACKAGE} --go-grpc_out=. ../${PROTO_DIR}/*.proto
 	go build -o ${BIN_DIR}/${SERVER_BIN} ./main.go
 
 test: all ## Launch tests
 	go test ./...
 
-clean: clean_project ## Clean generated files
-
-clean_pj: ## Clean generated files for greet
+clean: ## Clean generated files
 	${RM_F_CMD} ../${PROTO_DIR}/*.pb.go
 
 rebuild: clean all ## Rebuild the whole project
