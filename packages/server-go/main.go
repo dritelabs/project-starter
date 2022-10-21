@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net"
+	"os"
 
 	pb "github.com/dritelabs/project-starter/proto"
 	"google.golang.org/grpc"
@@ -15,6 +16,12 @@ type Server struct {
 }
 
 func main() {
+	if _, bol := os.LookupEnv("HOST"); !bol {
+		os.Setenv("HOST", addr)
+	}
+
+	addr = os.Getenv("HOST")
+
 	lis, err := net.Listen("tcp", addr)
 
 	if err != nil {

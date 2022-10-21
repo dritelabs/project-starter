@@ -1,0 +1,11 @@
+{
+  "name": "@dritelabs/project-starter-server-go",
+  "version": "0.0.0",
+  "description": "Project starter server go",
+  "private": true,
+  "scripts": {
+    "build": "make project",
+    "dev": "./bin/server"
+  },
+  "license": "MIT"
+}
